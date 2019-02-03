@@ -1,0 +1,121 @@
+<html>
+<head>
+    <title>Keypad Input</title>
+</head>
+<style>
+body {
+	font-size:18px;
+	font-family: sans-serif;	
+	text-align: center;
+}
+form {
+	max-width:360px;
+	margin:0 auto;	
+}
+input {
+	width:100%;
+	padding:1rem;
+	font-size:2rem;	
+	text-align: center;
+	background:#efefef;
+	border:.2rem solid #bbb;
+}
+button {
+	width:100%;
+	padding:1rem;
+	font-size:2rem;	
+	text-align: center;
+	background:#2196F3;
+  border: .2rem solid transparent;
+	color:#fefefe;
+}
+button:hover {
+	background-color:#37a1f8;
+}
+button:active {
+	background-color:#1485e1;
+}
+#keypad {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: .5rem;
+}
+#keypad p {
+  background-color: rgba(255, 255, 255, 0.7);
+  border: .2rem solid transparent;
+  padding: 1rem;
+  margin: .2rem;
+  font-size: 2rem;
+  text-align: center;
+	cursor: pointer;
+}
+#keypad p:hover {
+	background-color:rgba(255, 255, 255, 0.8);
+}
+#keypad p:active {
+	background-color:rgba(255, 255, 255, 0.6);
+}
+</style>
+<body>
+  <form action="" name="keypad" method="post" class="center-text" onload="emptyCode();">
+    <p id="message" class="success">ACCESSING...</p>
+
+    <input type="text" name="code" value="" maxlength="6" readonly="readonly">
+
+    <div id="keypad" class="mobile-full  tablet-full">
+      <p data-value="1">1</p>
+      <p data-value="2">2</p>
+      <p data-value="3">3</p>
+      <p data-value="4">4</p>
+      <p data-value="5">5</p>
+      <p data-value="6">6</p>
+      <p data-value="7">7</p>
+      <p data-value="8">8</p>
+      <p data-value="9">9</p>
+      <p data-value="clear"><small>clr</small></p>
+      <p data-value="0">0</p>
+      <p data-value="back">&laquo;</p>
+    </div>
+      <button data-value="clear">Submit</button>
+  </form>
+  <script type="text/javascript">	  
+		document.addEventListener('click', function (event) {
+		  if ( event.target.getAttribute('data-value') ) {
+				var val = event.target.getAttribute('data-value');
+		    switch (val) {
+					case 'submit': submitForm();
+						return;
+					break;
+						
+					case 'clear': emptyCode();
+						return;
+					break;
+						
+					case 'back': backSpace();
+						return;
+					break;
+						
+					default: addCode(val);
+					break;
+				}
+		  }
+		}, false);
+	
+	  function addCode(key){
+		  var maxlength = 6; //submits form after this number digits
+	    var code = document.forms[0].code;
+	    if(code.value.length < maxlength){
+	      code.value = code.value + key;
+	    }
+	    if(code.value.length == maxlength){
+	      document.getElementById("message").style.visibility = "visible";
+	      setTimeout(submitForm,1000);    
+	    }
+	  }
+	  function emptyCode(){ document.forms[0].code.value = ""; }
+	  function backSpace(){ document.keypad.code.value = document.keypad.code.value.substring(0,document.keypad.code.value.length*1 -1) }
+	  function submitForm(){ document.forms[0].submit(); }
+  </script>
+</body>
+</html>
