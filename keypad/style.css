@@ -1,0 +1,53 @@
+body {
+	font-size:18px;
+	font-family: sans-serif;	
+	text-align: center;
+}
+form {
+	max-width:360px;
+	margin:0 auto;	
+}
+input {
+	width:100%;
+	padding:1rem;
+	font-size:2rem;	
+	text-align: center;
+	background:#efefef;
+	border:.2rem solid #bbb;
+}
+button {
+	width:100%;
+	padding:1rem;
+	font-size:2rem;	
+	text-align: center;
+	background:#2196F3;
+  border: .2rem solid transparent;
+	color:#fefefe;
+}
+button:hover {
+	background-color:#37a1f8;
+}
+button:active {
+	background-color:#1485e1;
+}
+#keypad {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: .5rem;
+}
+#keypad p {
+  background-color: rgba(255, 255, 255, 0.7);
+  border: .2rem solid transparent;
+  padding: 1rem;
+  margin: .2rem;
+  font-size: 2rem;
+  text-align: center;
+	cursor: pointer;
+}
+#keypad p:hover {
+	background-color:rgba(255, 255, 255, 0.8);
+}
+#keypad p:active {
+	background-color:rgba(255, 255, 255, 0.6);
+}

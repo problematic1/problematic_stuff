@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Keypad Input</title>
+    <link rel="stylesheet" href="style.css" media="screen" />
+</head>
+<body>
+  <form action="" name="keypad" method="post" class="center-text" onload="emptyCode();">
+    <p id="message" class="success">ACCESSING...</p>
+
+    <input type="text" name="code" value="" maxlength="6" readonly="readonly">
+
+    <div id="keypad" class="mobile-full  tablet-full">
+      <p data-value="1">1</p>
+      <p data-value="2">2</p>
+      <p data-value="3">3</p>
+      <p data-value="4">4</p>
+      <p data-value="5">5</p>
+      <p data-value="6">6</p>
+      <p data-value="7">7</p>
+      <p data-value="8">8</p>
+      <p data-value="9">9</p>
+      <p data-value="clear"><small>clr</small></p>
+      <p data-value="0">0</p>
+      <p data-value="back">&laquo;</p>
+    </div>
+      <button data-value="clear">Submit</button>
+  </form>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
