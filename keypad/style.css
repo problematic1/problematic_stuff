@@ -1,53 +1,65 @@
 body {
-	font-size:18px;
-	font-family: sans-serif;	
-	text-align: center;
+  font-family: sans-serif;
+  font-size: 18px;
+  text-align: center;
 }
 form {
-	max-width:360px;
-	margin:0 auto;	
+  margin: 0 auto;
+  max-width: 360px;
 }
 input {
-	width:100%;
-	padding:1rem;
-	font-size:2rem;	
-	text-align: center;
-	background:#efefef;
-	border:.2rem solid #bbb;
+  background: #efefef;
+  border: 0.2rem solid #bbb;
+  box-sizing: border-box;
+  font-size: 2rem;
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
 }
 button {
-	width:100%;
-	padding:1rem;
-	font-size:2rem;	
-	text-align: center;
-	background:#2196F3;
-  border: .2rem solid transparent;
-	color:#fefefe;
+  background: #2196f3;
+  border: 0.2rem solid transparent;
+  color: #fefefe;
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
 }
 button:hover {
-	background-color:#37a1f8;
+  background-color: #37a1f8;
 }
 button:active {
-	background-color:#1485e1;
+  background-color: #1485e1;
+}
+button:last-of-type {
 }
 #keypad {
+  background-color: #2196f3;
   display: grid;
   grid-template-columns: auto auto auto;
-  background-color: #2196F3;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 #keypad p {
   background-color: rgba(255, 255, 255, 0.7);
-  border: .2rem solid transparent;
-  padding: 1rem;
-  margin: .2rem;
+  border: 0.2rem solid transparent;
+  cursor: pointer;
   font-size: 2rem;
+  margin: 0.2rem;
+  padding: 1rem;
   text-align: center;
-	cursor: pointer;
 }
 #keypad p:hover {
-	background-color:rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 #keypad p:active {
-	background-color:rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+#keypad p[data-value="clear"] {
+  font-size: 140%;
+  line-height: 160%;
+}
+#keypad p[data-value="back"] {
+  font-size: 280%;
+  line-height: 70%;
 }

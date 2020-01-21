@@ -1,11 +1,12 @@
 <html>
+
 <head>
-    <title>Keypad Input</title>
-    <link rel="stylesheet" href="style.css" media="screen" />
+  <title>Keypad Input</title>
 </head>
+
 <body>
   <form action="" name="keypad" method="post" class="center-text" onload="emptyCode();">
-    <p id="message" class="success">ACCESSING...</p>
+    <p id="message" class="success">ENTER CODE ...</p>
 
     <input type="text" name="code" value="" maxlength="6" readonly="readonly">
 
@@ -19,12 +20,13 @@
       <p data-value="7">7</p>
       <p data-value="8">8</p>
       <p data-value="9">9</p>
-      <p data-value="clear"><small>clr</small></p>
+      <p data-value="clear">clr</p>
       <p data-value="0">0</p>
       <p data-value="back">&laquo;</p>
     </div>
-      <button data-value="clear">Submit</button>
+    <!--Change the button's data-value attr to "submit" for form submission-->
+    <button data-value="clear">Submit</button>
   </form>
-  <script type="text/javascript" src="script.js"></script>
 </body>
+
 </html>

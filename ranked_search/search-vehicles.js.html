@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ranked Keyword Search - JS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<style>
+	body {font-family: 'helvetica','Arial', sans-serif;font-weight:200;}
+	table {text-align: left;}
+	td, th {min-width: 60px;border-bottom: 1px solid #ccc;height:2rem}	
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="crossorigin="anonymous"></script>
+</head>
+<body>
+		<input type="text" id="search_term" placeholder="Enter search term">
+		<button id="submit_search" >Search</button>
+	<hr>
+	<div id="ranked_search_results"></div>
+</body>
+</html>
+
+<script type="text/javascript">
+	jQuery(function($){
+			
+		document.getElementById('submit_search').addEventListener('click', rankSearch);
+		
+		function rankSearch() {
+			var search_term = document.getElementById('search_term').value.toLowerCase();
+		  var rankData = function ( data ) {
+				$.each( data, function( key, item ) {
+					data[key].score = scoreString(search_term, item.string.toLowerCase());			
+				});
+				var sort_data = data.sort((a, b) => (a.score < b.score) ? 1 : -1);
+			  return document.getElementById('ranked_search_results').innerHTML = outputHTML(sort_data);
+			}
+			$.getJSON( "vehicle_data.jsn", rankData );
+		}
+	
+		function outputHTML(data) {
+			var output = "<table><tr><th>Rank</th><th>Score</th><th>ID</th><th>String searched: VIN stock year make model trim body type etc ...</th></tr>";
+			$.each( data, function( key, item ) {
+				output += "<tr><td>"+key+"</td><td>"+item.score+"</td><td>"+item.id+"</td><td>"+item.string.substring(0, 180)+" ... </td></tr>";
+			});
+			output += "</table>";	
+			return output;
+		}
+			
+		function scoreString(search_term, string){
+			var score = 0;
+			var terms = search_term.split(" ");	
+			var chunk = '';
+			terms.forEach (function(term, key){
+				if (string.includes(term)){  
+					score++; //+1 point for term match
+					chunk = chunk+' '+term // group terms and check for match
+					if (string.includes(chunk)){
+						score++; //+1 point for word group match
+					}
+				}				
+			});
+			return score;
+		}
+		
+	})
+</script>
