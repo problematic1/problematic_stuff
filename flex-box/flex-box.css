@@ -1,0 +1,155 @@
+/* FLEX-BOX styles*/
+
+.flex > * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 1%;
+  padding: 1%;
+}
+
+@media only screen and (min-width: 560px) {
+  .flex {
+    -webkit-display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .column {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column wrap;
+    flex-flow: column wrap;
+  }
+
+  .row_wrap {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+  }
+
+  .row_nowrap {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+  }
+
+  .one_third {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 31%;
+    flex: 1 0 31%;
+  }
+
+  .two_thirds {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 64%;
+    flex: 1 0 64%;
+  }
+
+  .one_half {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 48%;
+    flex: 1 0 48%;
+  }
+
+  .one_quarter {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 23%;
+    flex: 1 0 23%;
+  }
+
+  .three_quarters {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 73%;
+    flex: 1 0 73%;
+  }
+
+  .full_width {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 98%;
+    flex: 1 0 98%;
+  }
+}
+
+.no_margin {
+  margin: 0;
+}
+
+.no_padding {
+  padding: 0;
+}
+
+.space_around {
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+
+.space_between {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.justify_center {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.align_items_center {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+/* END - Flex-box styles */
+
+/* Styles for demo display */
+
+.flex {
+	margin:1%;
+	padding:1%;
+}
+
+.flex div {
+  align-items: center;
+  border: 1px solid #bbb;
+  font-family: sans-serif;
+  min-height: 120px;
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+	justify-content: center;
+}
+
+.one_quarter {
+  background-color: red;
+}
+
+.three_quarters {
+  background-color: orange;
+}
+
+.one_half {
+  background-color: blue;
+}
+
+.one_third {
+  background-color: green;
+}
+
+.two_thirds {
+  background-color: yellow;
+}
+
+.full_width {
+  background-color: grey;
+}
+@media only screen and (min-width: 560px) {
+	.flex div {
+	}
+}
+
+/* END - Styles for demo display */
