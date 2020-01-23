@@ -1,3 +1,7 @@
+/* This is a small, easy to use and understand flex-box layout styles. */
+/* They do not affect mobile (small screens). I find them not necessary. */
+/* Adjust the pixel-width below to your desired threshold */
+
 /* FLEX-BOX styles*/
 
 .flex > * {
