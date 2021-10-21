@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body style="background: #444">
+    <!-- ampWidget will be inserted just above the end </body> tag-->
+  </body>
+
+  <script type="text/javascript">
+    demoInit();
+    function demoInit() {
+      /* INSERT STYLES
+    TODO
+    - Replace ampStylesPath var with user-selected stylesheet saved in acct data
+    - var ampStylesPath = <%= account.widgetStylesPath%>
+    */
+      var ampStylesPath = "multi_theme/multi_theme.css";
+      var ampStylesLink = document.createElement("link");
+      ampStylesLink.href = ampStylesPath;
+      ampStylesLink.type = "text/css";
+      ampStylesLink.rel = "stylesheet";
+      ampStylesLink.id = "ampStylesWillie";
+      ampStylesLink.media = "screen,print";
+      document.getElementsByTagName("head")[0].appendChild(ampStylesLink);
+
+      /* INSERT SCRIPT*/
+      var ampScriptTag = document.createElement("script");
+      ampScriptTag.type = "text/javascript";
+      ampScriptTag.src = "multi_theme/multi_theme_script.js";
+      document.getElementsByTagName("head")[0].appendChild(ampScriptTag);
+
+      /* INSERT WIDGET
+    TODO
+    - Replace ampWidgetMobile and ampWidgetDesktop var strings with user-selected widget code saved in acct data. Like so... (but not actual methods)*/
+      /* var ampWidgetMobile = <%= account.widgetCodeMobile%> */
+      /* var ampWidgetDesktop = <%= account.widgetCodeDesktop%> */
+
+      var ampWidgetMobile = `
+      <span id="amp_widget_picture">
+      <img
+        src="https://www.inlinetext.com/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWt5TjJGbE1URTVZaTFrWkRJNExUUTNOVEV0T0RCbE5pMWxPR0UxT0dRM1pqQTBaREFHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--60a455c5cb713c9d56343ecedeea469a4867cff4/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lNTVRBd2VERXdNQVk2QmtWVSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--4a9b66c5830bbb90a2869bc3edc3cbed721438ba/dm%20link.jpg"
+      /><!--<%= image_tag(user.image) %>-->
+    </span>
+    <div id="amp_widget_button">
+      <h3 id="amp_widget_dealer_message">
+        I'm available if you have any questions<!--<%= widget.title %>-->
+      </h3>
+      <h4 id="amp_widget_user_message">
+        - David Mynatt<!--<%= widget.text %>-->
+      </h4>
+    </div>
+    <div id="amp_widget_channel">
+      <strong>Select a department</strong>
+      <div class="channel_select">
+        <span>
+          <input id="sales_channel" type="radio" name="channel" value="Sales" />
+          <label for="sales_channel">Sales</label>
+        </span>
+        <span>
+          <input
+          id="service_channel"
+          type="radio"
+          name="channel"
+          value="Service"
+          />
+          <label for="service_channel">Service</label>
+        </span>
+      </div>
+    </div>
+    <a id="amp_widget_sms_link" href="sms:+1<%= account.phone_number %>" class="amp_disabled">
+      Start Session
+    </a>
+    <span id="amp_widget_controls" class="amp_upward">
+      <small>powered by <em>inLine</em> Text<sup>SM</sup></small>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 80">
+        <path
+          d="M67.77,10,66.5,20.36H53.18L54.45,10ZM52.27,27.76H65.59L62.32,54.4H49ZM84,50V14A14,14,0,0,0,70,0H14A14,14,0,0,0,0,14V50A14,14,0,0,0,14,64h3.84l9,16L37,64H70A14,14,0,0,0,84,50"
+          fill="#fff"
+        />
+      </svg>
+    </span>`;
+
+      var ampWidgetDesktop = `
+      <div>
+      <span id="amp_widget_picture">
+        <img
+          src="https://www.inlinetext.com/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWt5TjJGbE1URTVZaTFrWkRJNExUUTNOVEV0T0RCbE5pMWxPR0UxT0dRM1pqQTBaREFHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--60a455c5cb713c9d56343ecedeea469a4867cff4/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lNTVRBd2VERXdNQVk2QmtWVSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--4a9b66c5830bbb90a2869bc3edc3cbed721438ba/dm%20link.jpg"
+        /><!--<%= image_tag(user.image) %>-->
+      </span>
+      <div id="amp_widget_button">
+        <h3 id="amp_widget_dealer_message">
+          I'm available if you have any questions<!--<%= widget.title %>-->
+        </h3>
+        <h4 id="amp_widget_user_message">
+          - David Mynatt<!--<%= widget.text %>-->
+        </h4>
+      </div>
+      <div id="amp_widget_contact_form">
+        <form
+          class="amp_new_customer"
+          id="amp_new_customer"
+          action="<%= widget.form_url %>"
+          accept-charset="UTF-8"
+          method="post"
+        >
+          <div id="amp_widget_channel">
+            <strong>Select a department</strong>
+            <div class="channel_select">
+              <span>
+                <input
+                  id="sales_channel"
+                  type="radio"
+                  name="channel"
+                  value="Sales"
+                />
+                <label for="sales_channel">Sales</label>
+              </span>
+              <span>
+                <input
+                id="service_channel"
+                type="radio"
+                name="channel"
+                value="Service"
+                />
+                <label for="service_channel">Service</label>
+              </span>
+            </div>
+          </div>
+          <div id="amp_widget_inputs" class="amp_disabled">
+            <label>Name:</label>
+            <input type="text" name="first_name" id="amp_customer_first_name" />
+            <input type="hidden" name="last_name" value="" />
+            <label>Phone:</label>
+            <input
+              type="tel"
+              name="phone"
+              pattern="[(]?d{3}[)]?[-s.]?d{3}[-.]?d{4}$"
+            />
+            <input type="hidden" name="customer_comment" id="customer_comment" />
+          </div>
+          <div id="amp_widget_submit" class="amp_disabled">
+            <input type="submit" name="commit" value="Start Session" />
+          </div>
+          <div id="amp_widget_optin">
+            <small
+              >By clicking "Send" I agree to receive text messages, phone calls,
+              or emails from and understand that no consent to texting or calling
+              is required for a purchase of a product or a service. I also
+              understand that I can opt-out of messages at any time by texting
+              "Stop".
+            </small>
+          </div>
+        </form>
+      </div>
+      <span id="amp_widget_controls" class="amp_upward">
+        <small>powered by <em>inLine</em> Text<sup>SM</sup></small>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 80">
+          <path
+            d="M67.77,10,66.5,20.36H53.18L54.45,10ZM52.27,27.76H65.59L62.32,54.4H49ZM84,50V14A14,14,0,0,0,70,0H14A14,14,0,0,0,0,14V50A14,14,0,0,0,14,64h3.84l9,16L37,64H70A14,14,0,0,0,84,50"
+            fill="#fff"
+          />
+        </svg>
+      </span>
+    </div>`;
+
+      var ampWidgetHTML = document.createElement("div");
+      ampWidgetHTML.id = "amp_widget_container";
+      if (window.innerWidth > 900) {
+        ampWidgetHTML.classList = "amp_desktop";
+        ampWidgetHTML.innerHTML = ampWidgetDesktop;
+        ampWidgetHTML.style = "--h: 197;--s: 76%;--l: 51%";
+      } else {
+        ampWidgetHTML.classList = "amp_mobile";
+        ampWidgetHTML.innerHTML = ampWidgetMobile;
+        ampWidgetHTML.style = "--h: 197;--s: 76%;--l: 51%";
+      }
+      document.getElementsByTagName("body")[0].appendChild(ampWidgetHTML);
+      /* END - INSERT WIDGET */
+    }
+  </script>
+</html>
